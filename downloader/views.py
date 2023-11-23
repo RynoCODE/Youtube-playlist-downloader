@@ -9,6 +9,7 @@ from pytube import Playlist, YouTube
 from .forms import PlaylistForm
 from urllib.parse import quote
 
+
 def download_video(video_url, download_path, resolution='720p'):
     video = YouTube(video_url)
     stream = video.streams.filter(res=resolution, file_extension='mp4').first()
@@ -57,7 +58,6 @@ def download_playlist(playlist_url, download_path='media', resolution='720p'):
         file_path = download_video(video_url, download_path, resolution)
         if file_path:
             downloaded_files.append(file_path)
-
     return downloaded_files
 
 def home(request):
